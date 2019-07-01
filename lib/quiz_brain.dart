@@ -57,12 +57,18 @@ class QuizBrain {
     ),
   ];
 
+  bool isFinished() {
+    return (_questionNumber == _questionBank.length - 1);
+  }
+
   void nextQuestion() {
-    if (_questionNumber < _questionBank.length - 1) {
+    if (!isFinished()) {
       _questionNumber++;
-    } else {
-      _questionNumber = 0;
     }
+  }
+
+  void reset() {
+    _questionNumber = 0;
   }
 
   String getQuestionText() {
